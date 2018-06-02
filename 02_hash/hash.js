@@ -1,12 +1,12 @@
 function createHash(string, separator) {
   const arrayOfString = string.split(separator)
-  let hashOfString = {}
+  const hashOfString = {}
 
   for (const item of arrayOfString) {
-    hashOfString += item + ':' + item.length + ','
+    hashOfString[item] = item.length
   }
 
-  console.log(hashOfString.slice(0, -1))
+  console.log(hashOfString)
 }
 
 const input = window.prompt('文字列を入力してください')
