@@ -46,32 +46,35 @@ function ascending(numbers) {
 }
 
 function descending(numbers) {
-  if (numbers.length < 1) {
-    return numbers
-  }
+// TODO: 2018/06/12 クイックソート実装予定
 
-  const pivot = numbers[0]
-  const left = []
-  const right = []
+//   if (numbers.length < 1) {
+//     return numbers
+//   }
 
-  for(let i = 0; i <= numbers.length -1; i++){
-    if (numbers[i] <= pivot){
-      left[] += numbers[i]
-    }else{
-      right[] += numbers[i]
+//   const pivot = numbers[0]
+//   const left = []
+//   const right = []
+
+//   for(let i = 0; i <= numbers.length -1; i++){
+//     if (numbers[i] <= pivot){
+//       left[] += numbers[i]
+//     }else{
+//       right[] += numbers[i]
+//     }
+//   }
+
+// ひとまずバブルソートで実装、別のアルゴリズムに置き換え
+  for (let i = 0; i < numbers.length - 1; i++) {
+    for (let j = numbers.length - 1; j > i; j--) {
+      if (numbers[j - 1] < numbers[j]) {
+        const temp = numbers[j - 1]
+        numbers[j - 1] = numbers[j]
+        numbers[j] = temp
+      }
     }
   }
-
-  // for (let i = 0; i < numbers.length - 1; i++) {
-  //   for (let j = numbers.length - 1; j > i; j--) {
-  //     if (numbers[j - 1] < numbers[j]) {
-  //       const temp = numbers[j - 1]
-  //       numbers[j - 1] = numbers[j]
-  //       numbers[j] = temp
-  //     }
-  //   }
-  // }
-  // return numbers
+  return numbers
 }
 
 const numbers = [20, 31, 42, 13, 5, 38]
