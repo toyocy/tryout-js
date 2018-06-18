@@ -1,12 +1,10 @@
-const input = window.prompt('数字を入力してください')
-for (let i = 1; i < input; i++) {
-  if (i % 15 === 0) {
-    console.log('FizzBuzz')
-  } else if (i % 5 === 0) {
-    console.log('Buzz')
-  } else if (i % 3 === 0) {
-    console.log('Fizz')
-  } else {
-    console.log(i)
+const number = +(window.prompt('数字を入力してください'))
+let msg
+for (let i = 1; i <= number; i++) {
+  if(i%3 === 0){
+    i%15 === 0? msg='FizzBuzz': msg = 'Fizz'
+  }else{
+    i%5===0? msg='Buzz':msg = i
   }
+  console.log(msg)
 }
