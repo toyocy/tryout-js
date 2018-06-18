@@ -1,7 +1,8 @@
+// TODO: リファクタリング予定
 'use strict'
 
 function getRundom(max = 3) {
-  return Math.floor(Math.random() * Math.floor(max)).toString()
+  return Math.floor(Math.random() * Math.floor(max))
 }
 
 // 0:グー 1:チョキ 2:パー
@@ -16,7 +17,7 @@ function rockPaperScissors() {
   console.log('「じゃんけん・・・」')
   console.log(message)
 
-  const usersChoice = window.prompt(message)
+  const usersChoice = +window.prompt(message)
   if (choice[usersChoice] === undefined) {
     return
   }
@@ -30,9 +31,9 @@ function rockPaperScissors() {
   }
 
   if (
-    (usersChoice === '0' && comChoice === '1') ||
-    (usersChoice === '1' && comChoice === '2') ||
-    (usersChoice === '2' && comChoice === '0')
+    (usersChoice === 0 && comChoice === 1) ||
+    (usersChoice === 1 && comChoice === 2) ||
+    (usersChoice === 2 && comChoice === 0)
   ) {
     return 'win'
   } else {
