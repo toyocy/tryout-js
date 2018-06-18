@@ -1,11 +1,16 @@
+'use strict'
+
 function recursiveAdd(result) {
-  if (result === 0) {
-    return 0
-  } else {
-    return (result += recursiveAdd(result - 1))
-  }
+  return result === 0 ? 0 : (result += recursiveAdd(result - 1))
 }
 
-const value = window.prompt('数字を入力してください')
-const recursvedResult = recursiveAdd(Number(value))
+let value
+
+try {
+  value = +window.prompt('数字を入力してください')
+} catch (error) {
+  console.log(error)
+}
+
+const recursvedResult = recursiveAdd(value)
 console.log(recursvedResult)

@@ -1,3 +1,5 @@
+'use strict'
+
 function createHash(string, separator) {
   const arrayOfString = string.split(separator)
   const hashOfString = {}
