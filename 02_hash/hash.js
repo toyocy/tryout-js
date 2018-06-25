@@ -1,16 +1,14 @@
 'use strict'
 
-function createHash(string, separator) {
+const createHash = (string, separator) => {
   const arrayOfString = string.split(separator)
-  const hashOfString = {}
-
-  for (const item of arrayOfString) {
-    hashOfString[item] = item.length
-  }
-
-  console.log(hashOfString)
+  const hashOfString = arrayOfString.reduce((a, x) => {
+    if (!a[x]) a[x] = []
+    a[x] = x.length
+    return a
+  }, {})
+  return hashOfString
 }
-
 const input = window.prompt('文字列を入力してください')
 const space = ' '
-createHash(input, space)
+console.log(createHash(input, space))
