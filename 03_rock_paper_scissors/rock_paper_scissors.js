@@ -1,35 +1,16 @@
-// TODO: リファクタリング予定
 'use strict'
 
-function getRundom(max = 3) {
-  return Math.floor(Math.random() * Math.floor(max))
-}
+function rockPaperScissors(usersChoice) {
+  const comChoice = Math.floor(Math.random() * Math.floor(3))
+  const choice = ['グー', 'チョキ', 'パー']
 
-// 0:グー 1:チョキ 2:パー
-const choice = ['グー', 'チョキ', 'パー']
+  console.log(`あなた：${choice[usersChoice]}\nコンピュータ：${choice[comChoice]}`)
 
-let message = ''
-for (const item of choice) {
-  message += choice.indexOf(item) + '.' + item + ' '
-}
-
-function rockPaperScissors() {
-  console.log('「じゃんけん・・・」')
-  console.log(message)
-
-  const usersChoice = +window.prompt(message)
-  if (choice[usersChoice] === undefined) {
-    return
-  }
-
-  console.log('「ぽい！」')
-  const comChoice = getRundom()
-  console.log('あなた：' + choice[usersChoice])
-  console.log('コンピュータ：' + choice[comChoice])
   if (usersChoice === comChoice) {
     return 'draw'
   }
 
+  // ここをなんとかしたい。条件を簡潔に。
   if (
     (usersChoice === 0 && comChoice === 1) ||
     (usersChoice === 1 && comChoice === 2) ||
@@ -43,16 +24,17 @@ function rockPaperScissors() {
 
 let result
 do {
-  result = rockPaperScissors()
+  const usersChoice = +window.prompt('「じゃんけん・・・」\n 0.グー 1.チョキ 2.パー')
+  console.log('「ぽい！」')
+
+  if (usersChoice < 0 || usersChoice > 2) {
+    console.log('0 ~ 2 の数字を入力してください。')
+    continue
+  }
+  result = rockPaperScissors(usersChoice)
   if (result === 'draw') {
     console.log('「アイコでしょ!」')
   }
 } while (result === 'draw')
 
-if (result === 'win') {
-  console.log('「あなたの勝ち！」')
-} else if (result === 'lose') {
-  console.log('「あなたの負け」')
-} else {
-  console.log('正しい手が出ませんでした')
-}
+console.log(result === 'win' ? '「あなたの勝ち！」' : '「あなたの負け」')
