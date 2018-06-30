@@ -5,6 +5,7 @@ function createAnswer() {
   let i = 0
   do {
     const number = Math.floor(Math.random() * Math.floor(10))
+    // indexOf で数字の重複をチェック。-1 なら重複なし
     if (answer.indexOf(number) === -1) {
       answer[i] = number
       i += 1
