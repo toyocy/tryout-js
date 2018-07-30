@@ -4,19 +4,7 @@ const numbers = [20, 31, 42, 13, 5, 38]
 
 const sum = numbers => numbers.reduce((a, x) => (a += x), 0)
 const average = numbers => sum(numbers) / numbers.length
-
-// もう少し簡潔にできそう
-const maximum = numbers => {
-  let result = 0
-  for (const number of numbers) {
-    if (result < number) {
-      result = number
-    }
-  }
-  return result
-}
-
-// こっちももう少し簡潔にできそう
+const maximum = numbers => numbers.reduce((a, x) => (a > x ? a : (a = x)), 0)
 const minimum = numbers => {
   let result = numbers[0]
   for (const number of numbers) {
@@ -60,9 +48,9 @@ const descending = numbers => {
   return left.concat(pivot, right)
 }
 
-console.log('合計：' + sum(numbers))
-console.log('平均：' + average(numbers))
-console.log('最大値：' + maximum(numbers))
-console.log('最小値：' + minimum(numbers))
-console.log('昇順：' + ascending(numbers))
-console.log('降順：' + descending(numbers))
+console.log(`合計：${sum(numbers)}`)
+console.log(`平均：${average(numbers)}`)
+console.log(`最大値：${maximum(numbers)}`)
+console.log(`最小値：${minimum(numbers)}`)
+console.log(`昇順：${ascending(numbers)}`)
+console.log(`降順：${descending(numbers)}`)
